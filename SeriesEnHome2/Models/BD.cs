@@ -12,6 +12,14 @@ public class BD{
         }
     }
 
+
+ public static List<string> ListarSinopsis(){
+        string sql = "SELECT Sinopsis FROM Series";
+        using(SqlConnection db = new SqlConnection(_connectionString)){
+            return db.Query<string>(sql).ToList();
+        }
+    }
+
  public static List<Actor> ListarActores(){
         string sql = "SELECT * FROM Actores";
         using(SqlConnection db = new SqlConnection(_connectionString)){

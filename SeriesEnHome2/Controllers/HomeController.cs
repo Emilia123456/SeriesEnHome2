@@ -21,6 +21,10 @@ public class HomeController : Controller
         return View();
     }
 
+    public List<string> VerSinopsis(int IdSerie){
+        return  BD.ListarSinopsis();
+    }
+
     public IActionResult Privacy()
     {
         return View();

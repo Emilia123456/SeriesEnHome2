@@ -1,4 +1,21 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿    $.ajax(   
+        {   
+            url:'/Home/VerSinopsis',
+                    
+            data: {IdSerie: IdS},
+            type: 'GET',
+            dataType: 'json',
 
-// Write your JavaScript code.
+            success: function(response){
+                $("#Sinopsis").html(response.nombre);
+            },
+            error: function(xhr, status){
+                alert('Ooops!, hubo un problema :(');
+            },
+            complete : function(xhr, status){
+               console.log('Petición realizada')
+            }
+                
+        }
+            
+    );
