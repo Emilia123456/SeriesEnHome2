@@ -2,7 +2,7 @@
 using System.Data.SqlClient;
 using Dapper;
 public class BD{
-    private static string _connectionString = @"Server=localhost; DataBase=NOMBRE DE LA BASE DE DATOS;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost; DataBase=BDSeries;Trusted_Connection=True;";
 
  public static List<Serie> ListarSeries(){
         string sql = "SELECT * FROM Series";

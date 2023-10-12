@@ -1,8 +1,24 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "EMTV";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">EMTV</h1>
+    <p>Porque cada serie merece ser vista de nuevo y de nuevo.</p>
+
+    @{
+        foreach(Serie S in @ViewBag.ListaSeries){
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card">
+                <img src="@S.ImagenSerie" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@S.Nombre</h5>
+                    <p class="card-text">@S.Sinopsis</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        }
+    }
 </div>
