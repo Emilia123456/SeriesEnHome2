@@ -14,10 +14,16 @@
                         <img src="@S.ImagenSerie" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">@S.Nombre</h5>
-                            <p class="card-text">...</p>
+                            <p class="card-text">@S.Sinopsis</p>
                         </div>
                         <div class="card-body">
-                            <button type="button" class="btn" data-toggle="modal" data-target="#ModalSeries" onclick="MostrarMasInfo(@S.IdSerie)">
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalTemporadas" onclick="MostrarTemporadas(@S.IdSerie)">
+                                Temporadas
+                            </button>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalActores" onclick="MostrarActores(@S.IdSerie)">
+                                Actores
+                            </button>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalSeries" onclick="MostrarMasInfo(@S.IdSerie)">
                                 Ver más info
                             </button>
                         </div>
@@ -27,6 +33,48 @@
         }
     }
 
+
+@* Modal para mostrar Temporadas *@
+<div class="modal" tabindex="-1" id="ModalTemporadas" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Temporadas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="Temporadas"></div>
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+@* Modal para mostrar actores *@
+<div class="modal" tabindex="-1" id="ModalActores" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Actores</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="Actores"></div>
+      </div>
+       <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+@* Modal para mostrar mas info osea la sinopsis *@
 <div class="modal" tabindex="-1" id="ModalSeries" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -39,7 +87,6 @@
       </div>
        <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
       </div>
     </div>

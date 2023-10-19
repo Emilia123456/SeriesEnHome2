@@ -16,15 +16,18 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         ViewBag.ListaSeries=BD.ListarSeries();
-        ViewBag.ListaActores=BD.ListarActores();
-        ViewBag.ListaTemporadas=BD.ListarTemporadas();
         return View();
     }
 
-    public List<string> VerSinopsis(int IdSerie){
-        return  BD.ListarSinopsis();
+    public Serie MostrarMasInfo(int IdSerie){
+        return  BD.GetSerie(IdSerie);
     }
-
+    public List<Actor> MostrarActores(int IdSerie){
+        return  BD.ListarActores(IdSerie);
+    }
+    public List<Temporada> MostrarTemporadas(int IdSerie){
+        return  BD.ListarTemporadas(IdSerie);
+    }
     public IActionResult Privacy()
     {
         return View();

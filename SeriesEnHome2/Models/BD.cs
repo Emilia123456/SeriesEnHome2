@@ -12,25 +12,25 @@ public class BD{
         }
     }
 
-
- public static List<string> ListarSinopsis(){
-        string sql = "SELECT Sinopsis FROM Series";
+public static Serie GetSerie(int id){
+        
         using(SqlConnection db = new SqlConnection(_connectionString)){
-            return db.Query<string>(sql).ToList();
+            string sql = "SELECT * FROM Series WHERE IdSerie=@id ";
+            return db.QueryFirstOrDefault<Serie>(sql, new {id});
         }
     }
 
- public static List<Actor> ListarActores(){
-        string sql = "SELECT * FROM Actores";
+ public static List<Actor> ListarActores(int id){
+        string sql = "SELECT * FROM Actores WHERE IdSerie = @id";
         using(SqlConnection db = new SqlConnection(_connectionString)){
-            return db.Query<Actor>(sql).ToList();
+            return db.Query<Actor>(sql, new {id}).ToList();
         }
     }
 
- public static List<Temporada> ListarTemporadas(){
-        string sql = "SELECT * FROM Temporadas";
+ public static List<Temporada> ListarTemporadas(int id){
+        string sql = "SELECT * FROM Temporadas WHERE IdSerie = @id";
         using(SqlConnection db = new SqlConnection(_connectionString)){
-            return db.Query<Temporada>(sql).ToList();
+            return db.Query<Temporada>(sql, new{id}).ToList();
         }
     }
 }
